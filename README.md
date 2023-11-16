@@ -11,15 +11,12 @@
 运行以下命令
 
 ```shell
-cargo install mdbook # 安装 mdbook
-
-cargo install mdbook-katex # 数学公式插件
-
-cargo install mdbook-admonish # Hint样式插件
-
-cargo install mdbook-pdf # pdf导出插件（需要开启终端代理）
-
-pip install mdbook-pdf-outline # 支持导出pdf目录
+# 安装 mdbook
+cargo install mdbook 
+# 数学公式插件
+cargo install mdbook-katex 
+# Hint样式插件
+cargo install mdbook-admonish 
 ```
 
 ## 使用 mdbook

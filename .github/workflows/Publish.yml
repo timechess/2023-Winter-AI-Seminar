@@ -6,9 +6,15 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - README.md
+      - .github/*
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - README.md
+      - .github/*
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
