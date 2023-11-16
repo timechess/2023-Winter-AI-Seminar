@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>第 0 章：线性回归——梦的开始 - 2023冬季AI讨论班</title>
+        <title>生成模型 - 2023冬季AI讨论班</title>
 
 
         <!-- Custom HTML head -->
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../写在前面.html">写在前面</a></li><li class="chapter-item expanded affix "><li class="part-title">基础知识</li><li class="chapter-item expanded "><a href="../第0章/index.html" class="active"><strong aria-hidden="true">1.</strong> 第 0 章：线性回归——梦的开始</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../第0章/问题简述.html"><strong aria-hidden="true">1.1.</strong> 问题简述</a></li><li class="chapter-item expanded "><a href="../第0章/线性回归.html"><strong aria-hidden="true">1.2.</strong> 线性回归</a></li></ol></li><li class="chapter-item expanded "><a href="../第1章/index.html"><strong aria-hidden="true">2.</strong> 第 k 章：CV</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../第1章/生成模型.html"><strong aria-hidden="true">2.1.</strong> 生成模型</a></li><li class="chapter-item expanded "><a href="../第1章/nerf.html"><strong aria-hidden="true">2.2.</strong> CV与Graphic结合——NeRF</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../写在前面.html">写在前面</a></li><li class="chapter-item expanded affix "><li class="part-title">基础知识</li><li class="chapter-item expanded "><a href="../第0章/index.html"><strong aria-hidden="true">1.</strong> 第 0 章：线性回归——梦的开始</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../第0章/问题简述.html"><strong aria-hidden="true">1.1.</strong> 问题简述</a></li><li class="chapter-item expanded "><a href="../第0章/线性回归.html"><strong aria-hidden="true">1.2.</strong> 线性回归</a></li></ol></li><li class="chapter-item expanded "><a href="../第1章/index.html"><strong aria-hidden="true">2.</strong> 第 k 章：CV</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../第1章/生成模型.html" class="active"><strong aria-hidden="true">2.1.</strong> 生成模型</a></li><li class="chapter-item expanded "><a href="../第1章/nerf.html"><strong aria-hidden="true">2.2.</strong> CV与Graphic结合——NeRF</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -173,17 +173,42 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<h1 id="第-0-章线性回归梦的开始"><a class="header" href="#第-0-章线性回归梦的开始">第 0 章：线性回归——梦的开始</a></h1>
+<h1 id="生成模型实验"><a class="header" href="#生成模型实验">生成模型实验</a></h1>
+<h2 id="实验目的"><a class="header" href="#实验目的">实验目的</a></h2>
+<ol>
+<li>了解生成模型的基本方法和改进路线</li>
+<li>动手进行成规模的模型训练实践</li>
+</ol>
+<h2 id="实验配置"><a class="header" href="#实验配置">实验配置</a></h2>
+<h2 id="实验环境"><a class="header" href="#实验环境">实验环境</a></h2>
+<ul>
+<li>conda</li>
+<li>pytorch</li>
+<li>PIL,skimage,opencv-python,torchvision etc</li>
+<li>loguru,tensorboard </li>
+</ul>
+<h2 id="数据集"><a class="header" href="#数据集">数据集</a></h2>
+<p>FFHQ： 70k 1024<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">×</span></span></span></span>1024 高清人脸数据</p>
+<h2 id="实验内容"><a class="header" href="#实验内容">实验内容</a></h2>
+<ul>
+<li>训练<code>AE</code>,<code>VAE</code>,<code>VQVAE</code>,<code>GAN</code></li>
+<li>保留训练日志；可视化结果；分析报告。<strong>注意：错误的尝试也需要记录，并且分析原因，记录解决方法</strong></li>
+<li>调节训练参数：研究数据规模和模型规模之间的匹配关系；横向对比模型架构在生成任务上的优劣： 图片效果；可控性；收敛性 等等</li>
+</ul>
+<h2 id="温馨提示"><a class="header" href="#温馨提示">温馨提示</a></h2>
+<ul>
+<li>本实验提供参考代码框架，但鼓励自己查找开源实现</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../写在前面.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../第1章/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../第0章/问题简述.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../第1章/nerf.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -193,11 +218,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../写在前面.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../第1章/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../第0章/问题简述.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../第1章/nerf.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
